@@ -8,7 +8,7 @@
       if(date_create($date) === false) {
         return false;
       } else {
-        if(is_null($this->offset)) {
+        if(is_null($offset)) {
           if(isset($_REQUEST["tz"])) {
             $this->offset = $_REQUEST["tz"];
             $this->offsetFormat = (new \DateTime($date, new \DateTimeZone("UTC")))->diff((new \DateTime($date, new \DateTimeZone("UTC")))->sub(\DateInterval::createFromDateString($this->offset . " minutes")))->format("%R%H:%I");
